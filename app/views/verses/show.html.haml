@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Vote count:
+  = @verse.vote_count
+%p
+  %b Chapter:
+  = @verse.chapter
+%p
+  %b Book:
+  = @verse.book
+%p
+  %b Content:
+  = @verse.content
+%p
+  %b User:
+  = @verse.user
+
+= link_to 'Edit', edit_verse_path(@verse)
+\|
+= link_to 'Back', verses_path

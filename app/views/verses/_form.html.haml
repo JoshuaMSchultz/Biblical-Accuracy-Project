@@ -1,0 +1,12 @@
+= simple_form_for(@verse) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :vote_count
+    = f.association :chapter
+    = f.association :book
+    = f.input :content
+    = f.association :user
+
+  .form-actions
+    = f.button :submit

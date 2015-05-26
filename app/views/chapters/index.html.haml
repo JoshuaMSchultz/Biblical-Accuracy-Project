@@ -1,0 +1,21 @@
+%h1 Listing chapters
+
+%table
+  %tr
+    %th Number
+    %th Book
+    %th
+    %th
+    %th
+
+  - @chapters.each do |chapter|
+    %tr
+      %td= chapter.number_id
+      %td= chapter.book
+      %td= link_to 'Show', chapter
+      %td= link_to 'Edit', edit_chapter_path(chapter)
+      %td= link_to 'Destroy', chapter, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Chapter', new_chapter_path
