@@ -51,6 +51,8 @@ gem 'font-awesome-sass', '~> 4.3.0'
 # Gems changing format using DSL
 gem 'simple_form', '~> 3.1.0'
 
+gem 'fast_seeder'
+
 # Use Rails Assets for bundling javascript plugins
 source 'https://rails-assets.org' do
   gem 'rails-assets-jquery-ui'
