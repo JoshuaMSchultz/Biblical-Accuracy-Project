@@ -5,7 +5,13 @@
   = @chapter.number_id
 %p
   %b Book:
-  = @chapter.book
+  = @chapter.book.name
+
+%ul
+  - @chapter.verses.order('order_id ASC').each do |verse|
+    %li
+      =precede verse.order_id do
+        = verse.content
 
 = link_to 'Edit', edit_chapter_path(@chapter)
 \|
