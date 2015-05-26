@@ -1,0 +1,9 @@
+%h1 StaticPages#home
+%p Find me in app/views/static_pages/home.html.haml
+
+%ul
+  - @books.order('order_id ASC').each do |book|
+    %li= link_to book.name, book
+    %ul
+      - book.chapters('number ASC').each do |chapter|
+        %li= link_to chapter.number_id, chapter
