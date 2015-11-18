@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   resources :users
   resources :verses
+  get 'translate/:id' => 'verses#translate'
   resources :chapters
   resources :books
   # The priority is based upon order of creation: first created -> highest priority.

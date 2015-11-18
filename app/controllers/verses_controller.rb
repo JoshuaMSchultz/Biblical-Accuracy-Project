@@ -1,5 +1,6 @@
 class VersesController < ApplicationController
   before_action :set_verse, only: [:show, :edit, :update, :destroy]
+  before_action :store_translation, only: [:translate]
 
   # GET /verses
   # GET /verses.json
@@ -12,13 +13,8 @@ class VersesController < ApplicationController
   def show
   end
 
-  # GET /verses/new
-  def new
-    @verse = Verse.new
-  end
-
-  # GET /verses/1/edit
-  def edit
+  def translate
+    @verse = Verse.new(chapter: @pre_translation.chapter, book: @pre_translation.book, order_id: @pre_translation.order_id)
   end
 
   # POST /verses
@@ -65,6 +61,10 @@ class VersesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_verse
       @verse = Verse.find(params[:id])
+    end
+
+    def store_translation
+      @pre_translation = Verse.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

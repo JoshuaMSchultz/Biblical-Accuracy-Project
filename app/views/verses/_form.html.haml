@@ -2,11 +2,12 @@
   = f.error_notification
 
   .form-inputs
-    = f.input :vote_count
-    = f.association :chapter
-    = f.association :book
+    = f.input :vote_count, as: :hidden
+    = f.association :chapter, as: :hidden
+    = f.association :book, as: :hidden
     = f.input :content
-    = f.association :user
+    = f.association :user, as: :hidden
+    = f.input :order_id, as: :hidden
 
   .form-actions
-    = f.button :submit
+    = f.button :submit, "Submit Translation"
