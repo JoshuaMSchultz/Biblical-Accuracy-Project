@@ -11,6 +11,7 @@ class VersesController < ApplicationController
   # GET /verses/1
   # GET /verses/1.json
   def show
+    @verses = Verse.all
   end
 
   def translate

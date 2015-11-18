@@ -1,5 +1,6 @@
 class ChaptersController < ApplicationController
   before_action :set_chapter, only: [:show, :edit, :update, :destroy]
+  before_action :compile_translation, only: :show
 
   # GET /chapters
   # GET /chapters.json
@@ -10,6 +11,7 @@ class ChaptersController < ApplicationController
   # GET /chapters/1
   # GET /chapters/1.json
   def show
+    @accurate_chapter
   end
 
   # GET /chapters/new
@@ -65,6 +67,10 @@ class ChaptersController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_chapter
       @chapter = Chapter.find(params[:id])
+    end
+
+    def compile_translation
+      @accurate_chapter = @chapter.compile_best_translation
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

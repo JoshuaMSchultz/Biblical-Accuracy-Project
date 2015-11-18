@@ -8,7 +8,7 @@
   = @chapter.book.name
 
 %ul
-  - @chapter.verses.order('order_id ASC').each do |verse|
+  - @accurate_chapter.each do |verse|
     %li
       =precede "#{verse.order_id} " do
         = link_to verse.content, verse_path(verse)
